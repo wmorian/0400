@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { CheckBox, Button } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 import TaskItem from './components/TaskItem';
 import TaskInput from './components/TaskInput';
