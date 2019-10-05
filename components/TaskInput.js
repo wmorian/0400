@@ -4,12 +4,11 @@ import { Modal, View, TextInput, Button, StyleSheet } from 'react-native';
 const TaskInput = props => {
 
     const [enteredTask, setEnteredTask] = useState('');
-
+    
     return (
         <Modal
             visible={props.visible}
-            animationType='slide'
-        >
+            animationType='slide'>
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
@@ -17,7 +16,7 @@ const TaskInput = props => {
                     onChangeText={(text) => setEnteredTask(text)} />
                 <View styles={styles.buttonContainer}>
                     <Button title='CANCLE' onPress={() => props.onCancel()} />
-                    <Button title='ADD' onPress={() => props.onAdd(props.id, enteredTask)} />
+                    <Button title='ADD' onPress={() => props.onAdd(enteredTask)} />
                 </View>
             </View>
         </Modal>

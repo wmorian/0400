@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const TaskItem = props => {
-    const [taskText, setTaskText] = useState('add new task');
-
+    console.log(props.text)
     return (
         <TouchableOpacity
             style={styles.taskButton}
             activeOpacity={0.8}
             onPress={() => props.onAdding(props.id)}>
             <View style={styles.taskText}>
-                <Text>{props.task}</Text>
+                <Text>{props.text}</Text>
             </View>
         </TouchableOpacity>
     )

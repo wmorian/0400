@@ -6,24 +6,35 @@ import TaskInput from './components/TaskInput';
 export default function App() {
 
   const [isAddMode, setIsAddMode] = useState(false);
-  const [task1, setTask1] = useState('');
-  const [task2, setTask2] = useState('');
-  const [task3, setTask3] = useState('');
+  const [activeTaskId, setActiveTaskId] = useState(0);
+  const [task1, setTask1] = useState('add your first task');
+  const [task2, setTask2] = useState('add your second task');
+  const [task3, setTask3] = useState('add your third task');
+
+  const onAddingHandler = (id) => {
+    setActiveTaskId(id);
+    setIsAddMode(true);
+  }
 
   return (
     <View style={styles.screen}>
       <TaskInput visible={isAddMode}
-        onAdd={(id, task) => {
-          if (id == task1) setTask1(task);
-          else if (id == task2) setTask2(task);
-          else if (id == task3) setTask3(task);
+        onAdd={(task) => {
+          if (activeTaskId === 1) setTask1(task);
+          else if (activeTaskId === 2) setTask2(task);
+          else if (activeTaskId === 3) setTask3(task);
+
+          console.log(activeTaskId)
+          console.log('1 ' + task1)
+          console.log('2 ' + task2)
+          console.log('3 ' + task3)
 
           setIsAddMode(false);
         }}
         onCancel={() => setIsAddMode(false)}/>
-      <TaskItem id={1} task={task1} onAdding={() => setIsAddMode(true)}></TaskItem>
-      <TaskItem id={2} task={task2} onAdding={() => setIsAddMode(true)}></TaskItem>
-      <TaskItem id={3} task={task3} onAdding={() => setIsAddMode(true)}></TaskItem>
+      <TaskItem id={1} text={task1} onAdding={onAddingHandler}></TaskItem>
+      <TaskItem id={2} text={task2} onAdding={onAddingHandler}></TaskItem>
+      <TaskItem id={3} text={task3} onAdding={onAddingHandler}></TaskItem>
     </View>
   );
 };
