@@ -27,7 +27,7 @@ const TaskInput = props => {
                         <Button
                             title='ADD'
                             color='green'
-                            onPress={() => props.onAdd(enteredTask)} />
+                            onPress={() => props.onSubmit(enteredTask)} />
                     </View>
                 </View>
             </View>
@@ -41,8 +41,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
-
-        borderWidth: 10
+        backgroundColor: 'antiquewhite'
     },
     input: {
         width: '80%',
