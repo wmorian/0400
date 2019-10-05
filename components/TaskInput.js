@@ -4,7 +4,7 @@ import { Modal, View, TextInput, Button, StyleSheet } from 'react-native';
 const TaskInput = props => {
 
     const [enteredTask, setEnteredTask] = useState('');
-    
+
     return (
         <Modal
             visible={props.visible}
@@ -12,11 +12,23 @@ const TaskInput = props => {
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder='enter task'
+                    placeholder='Enter task'
+                    autoFocus={true}
+                    multiline={true}
                     onChangeText={(text) => setEnteredTask(text)} />
-                <View styles={styles.buttonContainer}>
-                    <Button title='CANCLE' onPress={() => props.onCancel()} />
-                    <Button title='ADD' onPress={() => props.onAdd(enteredTask)} />
+                <View style={styles.buttonContainer}>
+                    <View style={styles.button}>
+                        <Button
+                            title='CANCEL'
+                            color='red'
+                            onPress={() => props.onCancel()} />
+                    </View>
+                    <View style={styles.button}>
+                        <Button
+                            title='ADD'
+                            color='green'
+                            onPress={() => props.onAdd(enteredTask)} />
+                    </View>
                 </View>
             </View>
         </Modal>
@@ -28,7 +40,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 1
+        flex: 1,
+
+        borderWidth: 10
     },
     input: {
         width: '80%',
@@ -39,7 +53,10 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: '70%'
+        width: '70%',
+    },
+    button: {
+        width: '40%'
     }
 })
 

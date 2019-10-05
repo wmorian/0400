@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Modal, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import TaskItem from './components/TaskItem';
 import TaskInput from './components/TaskInput';
 
@@ -24,11 +24,6 @@ export default function App() {
           else if (activeTaskId === 2) setTask2(task);
           else if (activeTaskId === 3) setTask3(task);
 
-          console.log(activeTaskId)
-          console.log('1 ' + task1)
-          console.log('2 ' + task2)
-          console.log('3 ' + task3)
-
           setIsAddMode(false);
         }}
         onCancel={() => setIsAddMode(false)}/>
@@ -42,9 +37,9 @@ export default function App() {
 const styles = StyleSheet.create({
   screen: {
     padding: 50,
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'beige'
+    // flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // backgroundColor: 'beige'
   }
 });
